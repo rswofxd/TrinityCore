@@ -30,7 +30,7 @@ RUN curl -o /home/server/wow/bin/maps.tar http://dark-games.org.ua/files/wow3.3.
 RUN cd /home/server/wow/bin && tar -xvf maps.tar && rm -f maps.tar
 
 RUN curl -o /var/www/html/reg.tar http://dark-games.org.ua/files/wow3.3.5a/reg.tar
-RUN cd /var/www/html && rm -f /var/www/html/index.html && tar -xvf reg.tar && rm -f /var/www/html/reg.tar
+RUN cd /var/www/html &&  echo "<head><meta http-equiv='refresh' content='0; url=/index.php' /></head>" > /var/www/html/index.html && tar -xvf reg.tar && rm -f /var/www/html/reg.tar
 
 COPY restart_authserver.sh /home/server/wow/restart_authserver.sh
 COPY restart_worldserver.sh /home/server/wow/restart_worldserver.sh
