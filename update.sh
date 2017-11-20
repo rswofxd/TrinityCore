@@ -1,7 +1,4 @@
 #!/bin/sh
-GETIP=`curl -s http://dark-games.org.ua/ip.php`
-CHECK_IFCONFIG=`ifconfig |grep $GETIP | cut -d: -f2 | awk '{ print $1}'`
-
 DB_HOST="localhost"
 DB_USER="trinity"
 DB_PASSWD="trinity"
@@ -12,6 +9,14 @@ EMAIL="evgeniy@kolesnyk.ru"
 PASSWORD="1234"
 REALMLIST="DARK-GAMES.ORG.UA"
 
+GETIP=`curl -s http://dark-games.org.ua/ip.php`
+CHECK_IFCONFIG=`ifconfig |grep $GETIP | cut -d: -f2 | awk '{ print $1}'`
+if [ -z $CHECK_IFCONFIG ]
+then
+HOSTNAME=`hostname -f`
+LOCAL_IP=`host $HOSTNAME 2>/dev/null | grep -oP '\d+\.\d+\.\d+\.\d+'`
+CHECK_IFCONFIG=$LOCAL_IP
+fi
 
 if [ -n "$CHECK_IFCONFIG" ]; then
 SHA1_PASSWORD=`echo -n "$LOGIN:$PASSWORD" | tr [:lower:] [:upper:] | sha1sum | awk '{print $1}'`
