@@ -11,7 +11,7 @@ if [ -n "$CHECK_IFCONFIG" ]; then
 
 mysql --host=$DB_HOST --user=$DB_USER --password=$DB_PASSWD $DB_NAME << EOF
 UPDATE $DB_NAME.realmlist SET name='DARK-GAMES.ORG.UA', address='$CHECK_IFCONFIG', port='8085' WHERE id=1;
-INSERT INTO $DB_NAME.account (username, sha_pass_hash) VALUES ('admin', 'd13fcd1b568d81a7f4d55ec614dfa4b3d21641a2');
+INSERT INTO $DB_NAME.account (username, sha_pass_hash) VALUES ('admin', '00a51843d4c99be8b358ff288ea014525b0445c3');
 INSERT INTO $DB_NAME.account_access (id, gmlevel, RealmID) VALUES (1, 3, 1);
 EOF
 
