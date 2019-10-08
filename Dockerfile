@@ -8,15 +8,17 @@ RUN apt-get --assume-yes update && apt-get --assume-yes upgrade && \
   update-alternatives --install /usr/bin/cc cc /usr/bin/clang 100 && \
   update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang 100
 
-RUN useradd -ms /bin/bash server
-RUN mkdir -p /home/server/wow && mkdir -p /home/server/source
-RUN cd /home/server/source && git clone -b 3.3.5 git://github.com/TrinityCore/TrinityCore.git  && mkdir -p /home/server/source/TrinityCore/build
-RUN cd /home/server/source/TrinityCore/build && cmake ../ -DCMAKE_INSTALL_PREFIX=/home/server/wow -DCONF_DIR=/home/server/wow/conf -DTOOLS=1
+RUN useradd -ms /bin/bash server && \
+    mkdir -p /home/server/wow && mkdir -p /home/server/source && \
+    cd /home/server/source && git clone -b 3.3.5 git://github.com/TrinityCore/TrinityCore.git  && mkdir -p /home/server/source/TrinityCore/build && \
+    cd /home/server/source/TrinityCore/build && cmake ../ -DCMAKE_INSTALL_PREFIX=/home/server/wow -DCONF_DIR=/home/server/wow/conf -DTOOLS=1
 
-COPY setup-mysql.sh /root/setup-mysql.sh
-RUN chmod +x /root/setup-mysql.sh
-RUN /root/setup-mysql.sh
-RUN rm -f /root/setup-mysql.sh
+RUN curl -o /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_2019_07_15.7z https://raw.githubusercontent.com/TrinityCore/TrinityCoreDatabases/master/3.3.5/TDB_full_world_335.19071_2019_07_15.7z && \
+    cd /home/server/source/TrinityCore/sql/base && 7z e TDB_full_world_335.19071_2019_07_15.7z && \
+    mysql < /home/server/source/TrinityCore/sql/create/create_mysql.sql && \
+    mysql auth < /home/server/source/TrinityCore/sql/base/auth_database.sql && \
+    mysql characters < /home/server/source/TrinityCore/sql/base/characters_database.sql && \
+    mysql world < /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_2019_07_15.sql
 
 #RUN curl -o /home/server/wow.tar.gz http://dark-games.org.ua/files/wow3.3.5a/wow.tar.gz
 #RUN tar -xvzf /home/server/wow.tar.gz -C /home/server && rm -f /home/server/wow.tar.gz
