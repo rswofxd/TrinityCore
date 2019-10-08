@@ -11,7 +11,8 @@ RUN apt-get --assume-yes update && apt-get --assume-yes upgrade && \
 RUN useradd -ms /bin/bash server && \
     mkdir -p /home/server/wow && mkdir -p /home/server/source && \
     cd /home/server/source && git clone -b 3.3.5 git://github.com/TrinityCore/TrinityCore.git  && mkdir -p /home/server/source/TrinityCore/build && \
-    cd /home/server/source/TrinityCore/build && cmake ../ -DCMAKE_INSTALL_PREFIX=/home/server/wow -DCONF_DIR=/home/server/wow/conf -DTOOLS=1
+    cd /home/server/source/TrinityCore/build && cmake ../ -DCMAKE_INSTALL_PREFIX=/home/server/wow -DCONF_DIR=/home/server/wow/conf -DTOOLS=1 && \
+    make
 
 RUN curl -o /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_2019_07_15.7z https://raw.githubusercontent.com/TrinityCore/TrinityCoreDatabases/master/3.3.5/TDB_full_world_335.19071_2019_07_15.7z && \
     cd /home/server/source/TrinityCore/sql/base && 7z e TDB_full_world_335.19071_2019_07_15.7z
