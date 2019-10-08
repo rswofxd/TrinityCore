@@ -3,7 +3,7 @@ MAINTAINER admin <brouzuf@gmail.com>
 
 RUN apt-get --assume-yes update && apt-get --assume-yes upgrade && \
     apt-get --assume-yes install build-essential gcc g++ automake git autoconf make patch \
-  libmysql++-dev libtool libssl-dev grep binutils zlibc libc6 libbz2-dev cmake subversion p7zip \
+  libmysql++-dev libtool libssl-dev grep binutils zlibc libc6 libbz2-dev cmake subversion p7zip-full \
   libboost-all-dev mysql-client-5.6 screen libace-dev libmysqlclient-dev clang libreadline-dev libncurses-dev && \
   update-alternatives --install /usr/bin/cc cc /usr/bin/clang 100 && \
   update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang 100
