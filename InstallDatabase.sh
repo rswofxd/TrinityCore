@@ -7,11 +7,6 @@ port="3306"
 wdb="world"
 cdb="characters"
 rdb="auth"
-
-    mysql <  && \
-    mysql auth <  && \
-    mysql characters <  && \
-    mysql world < 
     
 createCharDB()
 {
