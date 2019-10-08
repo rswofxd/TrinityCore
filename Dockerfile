@@ -32,6 +32,7 @@ RUN   git clone https://github.com/brouzuf/TrinityCore.git /install --recursive 
 cp /install/restart_authserver.sh /home/server/wow/restart_authserver.sh && \
 cp /install/restart_worldserver.sh /home/server/wow/restart_worldserver.sh &&\
 cp /install/restart_all.sh /root/restart_all.sh && \
+mkdir /home/server/wow/etc && \
 cp /install/authserver.conf /home/server/wow/etc/authserver.conf && \
 cp /install/worldserver.conf /home/server/wow/etc/worldserver.conf && \
 chmod +x /home/server/wow/restart_authserver.sh && \
