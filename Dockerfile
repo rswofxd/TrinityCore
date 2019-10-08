@@ -14,11 +14,8 @@ RUN useradd -ms /bin/bash server && \
     cd /home/server/source/TrinityCore/build && cmake ../ -DCMAKE_INSTALL_PREFIX=/home/server/wow -DCONF_DIR=/home/server/wow/conf -DTOOLS=1
 
 RUN curl -o /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_2019_07_15.7z https://raw.githubusercontent.com/TrinityCore/TrinityCoreDatabases/master/3.3.5/TDB_full_world_335.19071_2019_07_15.7z && \
-    cd /home/server/source/TrinityCore/sql/base && 7z e TDB_full_world_335.19071_2019_07_15.7z && \
-    mysql < /home/server/source/TrinityCore/sql/create/create_mysql.sql && \
-    mysql auth < /home/server/source/TrinityCore/sql/base/auth_database.sql && \
-    mysql characters < /home/server/source/TrinityCore/sql/base/characters_database.sql && \
-    mysql world < /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_2019_07_15.sql
+    cd /home/server/source/TrinityCore/sql/base && 7z e TDB_full_world_335.19071_2019_07_15.7z
+
 
 #RUN curl -o /home/server/wow.tar.gz http://org.ua/files/wow3.3.5a/wow.tar.gz
 #RUN tar -xvzf /home/server/wow.tar.gz -C /home/server && rm -f /home/server/wow.tar.gz
