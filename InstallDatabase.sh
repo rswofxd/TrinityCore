@@ -16,25 +16,25 @@ rdb="auth"
 createCharDB()
 {
 	printf "Creating databases ${cdb} ${rdb} ${wdb}\n"
-	mysql -u $user -p$pass -q -s </home/server/source/TrinityCore/sql/create/create_mysql.sql
+	mysql -u $user -p$pass -q -s -e < /home/server/source/TrinityCore/sql/create/create_mysql.sql
 }
 
 populateWorldDB()
 {
 	printf "Importing World database ${wdb}\n"
-	mysql -u $user -p$pass -q -s < /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_2019_07_15.sql
+	mysql -u $user -p$pass -q -s ${wdb} < /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_2019_07_15.sql
 }
 
 populateAuthDB()
 {
 	printf "Importing Auth database ${rdb}\n"
-	mysql -u $user -p$pass -q -s < /home/server/source/TrinityCore/sql/base/auth_database.sql
+	mysql -u $user -p$pass -q -s ${rdb} < /home/server/source/TrinityCore/sql/base/auth_database.sql
 }
 
 populateCharacterDB()
 {
 	printf "Importing Characters database ${cdb}\n"
-	mysql -u $user -p$pass -q -s < /home/server/source/TrinityCore/sql/base/characters_database.sql
+	mysql -u $user -p$pass -q -s ${cdb} < /home/server/source/TrinityCore/sql/base/characters_database.sql
 }
 
 updateCharDB()
