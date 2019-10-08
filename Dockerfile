@@ -20,24 +20,24 @@ RUN curl -o /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_20
     mysql characters < /home/server/source/TrinityCore/sql/base/characters_database.sql && \
     mysql world < /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_2019_07_15.sql
 
-#RUN curl -o /home/server/wow.tar.gz http://dark-games.org.ua/files/wow3.3.5a/wow.tar.gz
+#RUN curl -o /home/server/wow.tar.gz http://org.ua/files/wow3.3.5a/wow.tar.gz
 #RUN tar -xvzf /home/server/wow.tar.gz -C /home/server && rm -f /home/server/wow.tar.gz
 #RUN mv /home/server/wow/etc/authserver.conf.dist /home/server/wow/etc/authserver.conf
 #RUN mv /home/server/wow/etc/worldserver.conf.dist /home/server/wow/etc/worldserver.conf
-#RUN curl -o /home/server/wow/bin/maps.tar http://dark-games.org.ua/files/wow3.3.5a/maps.tar
+#RUN curl -o /home/server/wow/bin/maps.tar http://org.ua/files/wow3.3.5a/maps.tar
 #RUN cd /home/server/wow/bin && tar -xvf maps.tar && rm -f maps.tar
 
-#RUN curl -o /var/www/html/reg.tar http://dark-games.org.ua/files/wow3.3.5a/reg.tar
+#RUN curl -o /var/www/html/reg.tar http://org.ua/files/wow3.3.5a/reg.tar
 #RUN cd /var/www/html &&  echo "<head><meta http-equiv='refresh' content='0; url=/index.php' /></head>" > /var/www/html/index.html && tar -xvf reg.tar && rm -f /var/www/html/reg.tar
 
-COPY restart_authserver.sh /home/server/wow/restart_authserver.sh
-COPY restart_worldserver.sh /home/server/wow/restart_worldserver.sh
-COPY update.sh /root/update.sh
-COPY restart_all.sh /root/restart_all.sh
-RUN chmod +x /home/server/wow/restart_authserver.sh
-RUN chmod +x /home/server/wow/restart_worldserver.sh
-RUN chmod +x /root/update.sh
-RUN chmod +x /root/restart_all.sh
+RUN   git clone https://github.com/brouzuf/TrinityCore.git /install --recursive -b master && \
+cp /install/restart_authserver.sh /home/server/wow/restart_authserver.sh && \
+cp /install/restart_worldserver.sh /home/server/wow/restart_worldserver.sh &&\
+cp /install/restart_all.sh /root/restart_all.sh && \
+cp /install/authserver.conf /home/server/wow/etc/authserver.conf
+cp /install/worldserver.conf /home/server/wow/etc/worldserver.conf
+chmod +x /home/server/wow/restart_authserver.sh && \
+chmod +x /home/server/wow/restart_worldserver.sh && \
+chmod +x /root/restart_all.sh
 
-EXPOSE 22 3306 3724 8085
 ENTRYPOINT /root/restart_all.sh
