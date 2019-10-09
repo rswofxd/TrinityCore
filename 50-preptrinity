@@ -1,24 +1,24 @@
 #!/usr/bin/with-contenv bash
 
-if [ ! -d /mangos/dbc ]; then
+if [ ! -d /home/server/wow/data/dbc ]; then
         if [ -d /config/wowfiles/dbc ]; then
                 ln -s /config/wowfiles/dbc /home/server/wow/data
         fi
 fi
 
-if [ ! -d /mangos/mmaps ]; then
+if [ ! -d /home/server/wow/data/mmaps ]; then
         if [ -d /config/wowfiles/mmaps ]; then
                 ln -s /config/wowfiles/mmaps /home/server/wow/data
         fi
 fi
 
-if [ ! -d /mangos/vmaps ]; then
+if [ ! -d /home/server/wow/data/vmaps ]; then
         if [ -d /config/wowfiles/vmaps ]; then
                 ln -s /config/wowfiles/vmaps /home/server/wow/data
         fi
 fi
 
-if [ ! -d /mangos/maps ]; then
+if [ ! -d /home/server/wow/data/maps ]; then
         if [ -d /config/wowfiles/maps ]; then
                 ln -s /config/wowfiles/maps /home/server/wow/data
         fi
@@ -42,6 +42,14 @@ fi
 
 if [ ! -f /config/wowconfig/authserver.conf ]; then
    cp /install/authserver.conf /config/wowconfig
+fi
+
+if [ ! -f /home/server/wow/conf/worldserver.conf ]; then
+ln -s /config/wowconfig/worldserver.conf /home/server/wow/conf/worldserver.conf
+fi
+
+if [ ! -f /home/server/wow/conf/authserver.conf ]; then
+ln -s /config/wowconfig/authserver.conf /home/server/wow/conf/authserver.conf
 fi
 
 test -f /proc/net/if_inet6 && echo "IPv6 supported. Not changing nginx config" || sed -i '\|listen \[::\]:80 default_server;|s///' /etc/nginx/sites-enabled/default
