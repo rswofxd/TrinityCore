@@ -33,7 +33,7 @@ cp /install/servicephp-fpm /etc/services.d/php7.2-fpm/run && \
 #cp /install/50-preptrinity /etc/cont-init.d && \
 #cp /install/60-preptrinityweb /etc/cont-init.d && \
 cp /install/nginxdefaultconfig /etc/nginx/sites-enabled/default && \
-chmod +x /install/InstallMangos.sh && \
+chmod +x /install/InstallTrinity.sh && \
 chmod +x /install/InstallDatabases.sh && \
 chmod +x /install/InstallWowfiles.sh && \
 chmod +x /install/UpdateWanIP.sh && \
