@@ -1,3 +1,3 @@
 #!/usr/bin/with-contenv bash
 
-/mangos/realmd -c /config/wowconfig/realmd.conf
+/home/server/wow/bin/authserver -c /home/server/conf/authserver.conf
