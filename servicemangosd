@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv bash
+
+/home/server/wow/bin/worldserver -c /home/server/wow/conf/worldserver.conf
