@@ -32,15 +32,15 @@ cp /install/servicemangosd /etc/services.d/worldserver/run && \
 cp /install/servicerealmd /etc/services.d/authserver/run && \
 cp /install/servicenginx /etc/services.d/nginx/run && \
 cp /install/servicephp-fpm /etc/services.d/php7.2-fpm/run && \
-#cp /install/50-preptrinity /etc/cont-init.d && \
-#cp /install/60-preptrinityweb /etc/cont-init.d && \
+cp /install/50-preptrinity /etc/cont-init.d && \
+cp /install/60-preptrinityweb /etc/cont-init.d && \
 cp /install/nginxdefaultconfig /etc/nginx/sites-enabled/default && \
 chmod +x /install/InstallTrinity.sh && \
 chmod +x /install/InstallDatabase.sh && \
 chmod +x /install/InstallWowfiles.sh && \
 chmod +x /install/UpdateWanIP.sh && \
-#chmod +x /etc/cont-init.d/50-preptrinity && \
-#chmod +x /etc/cont-init.d/60-preptrinityweb && \
+chmod +x /etc/cont-init.d/50-preptrinity && \
+chmod +x /etc/cont-init.d/60-preptrinityweb && \
 #rm -rf /install/TrinityWeb && \
 cp /install/restart_authserver.sh /home/server/wow/restart_authserver.sh && \
 cp /install/restart_worldserver.sh /home/server/wow/restart_worldserver.sh &&\
