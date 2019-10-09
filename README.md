@@ -66,23 +66,28 @@ this is an automated build, which will automatically build the latest version of
 
 Automatic database upgrades on startup is in the works.
 
-# Remote Admin
+# Account Creation:
+Next create your Login Account by typing directly into the worldserver window the GM Command account create. Syntax: (see examples below)
+
+If you wish to set the account as a GM then type into the worldserver window: account set gmlevel $account #level #realmid where $account is the account name to change, #level can be 0-3 and #realmid is the realm ID. Setting a #level of "3" is GM account level (higher numbers = more access), and the "-1" is the realm ID that stands for "all realms".
 You need to have a GM level 3 account to access the remote admin port.
-Create one the following way.
-
+To create your account: very important, don't use @ on account names.
 ```
-docker exec -it wotlk /home/server/bin/worldserver -c /config/wowconfig/console.conf
+...
 ```
-
-This will run a mangos config on another port with console enabled.
-Essentially connecting you to the mangos console.
-You can do this while your production mangos is running. 
 
 Now create your GM account (or just elevate your current account)
-
 ```
-account create gmadmin Y0UB4HDSTR0NGP4SSW0RD
-account set gmlevel gmadmin 3
+account create <user> <pass>
 ```
+Example: account create test test
 
-*// You can now connect with telnet to port 3443 with your gm account for abuse of GM power ;) //
+
+To set your account level:
+```
+account set gmlevel <user> 3 -1
+```
+Example: account set gmlevel test 3 -1
+
+Login to your account:
+Log in with account test and password test through wow.exe.
