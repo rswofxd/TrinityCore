@@ -1,0 +1,25 @@
+#!/usr/bin/with-contenv bash
+
+if [ ! -d /config/trinityweb ]; then
+        cp /var/www/html/trinityweb /config -R
+fi
+
+if [ ! -d /var/www/html/config ]; then
+        ln -s /config/trinityweb /var/www/html/config
+fi
+
+if [ -d /config/trinityweb ]; then
+        chmod 777 /config/trinityweb -R
+fi
+
+if [ -d /var/www/html/core/cache ]; then
+        chmod 777 /var/www/html/core/cache -R
+fi  
+
+if [ ! -f /config/trinityweb/config.php.bak ]; then
+        chmod 777 /var/www/html/install/index.php
+fi
+
+if [ -f /config/trinityweb/config.php.bak ]; then
+        chmod 000 /var/www/html/install/index.php
+fi
