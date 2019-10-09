@@ -17,16 +17,29 @@ RUN useradd -ms /bin/bash server && \
 RUN curl -o /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_2019_07_15.7z https://raw.githubusercontent.com/TrinityCore/TrinityCoreDatabases/master/3.3.5/TDB_full_world_335.19071_2019_07_15.7z && \
     cd /home/server/source/TrinityCore/sql/base && 7z e TDB_full_world_335.19071_2019_07_15.7z
 
-
-#RUN curl -o /home/server/wow.tar.gz http://org.ua/files/wow3.3.5a/wow.tar.gz
-#RUN tar -xvzf /home/server/wow.tar.gz -C /home/server && rm -f /home/server/wow.tar.gz
-#RUN mv /home/server/wow/etc/authserver.conf.dist /home/server/wow/etc/authserver.conf
-#RUN mv /home/server/wow/etc/worldserver.conf.dist /home/server/wow/etc/worldserver.conf
-#RUN curl -o /home/server/wow/bin/maps.tar http://org.ua/files/wow3.3.5a/maps.tar
-#RUN cd /home/server/wow/bin && tar -xvf maps.tar && rm -f maps.tar
-
-#RUN curl -o /var/www/html/reg.tar http://org.ua/files/wow3.3.5a/reg.tar
-#RUN cd /var/www/html &&  echo "<head><meta http-equiv='refresh' content='0; url=/index.php' /></head>" > /var/www/html/index.html && tar -xvf reg.tar && rm -f /var/www/html/reg.tar
+RUN apt-get --assume-yes install git-core nginx php7.2-fpm php7.2-xml php7.2-mysqli php7.2-gd && \
+rm -rf /var/www/html && \
+mkdir /etc/services.d/mangosd && \
+mkdir /etc/services.d/realmd && \
+mkdir /etc/services.d/nginx && \
+mkdir /etc/services.d/php7.2-fpm && \
+mkdir /run/php && \
+mkdir /var/www/html && \
+#cp /install/TrinityWeb/* /var/www/html -R && \
+cp /install/servicemangosd /etc/services.d/mangosd/run && \
+cp /install/servicerealmd /etc/services.d/realmd/run && \
+cp /install/servicenginx /etc/services.d/nginx/run && \
+cp /install/servicephp-fpm /etc/services.d/php7.2-fpm/run && \
+#cp /install/50-preptrinity /etc/cont-init.d && \
+#cp /install/60-preptrinityweb /etc/cont-init.d && \
+cp /install/nginxdefaultconfig /etc/nginx/sites-enabled/default && \
+chmod +x /install/InstallMangos.sh && \
+chmod +x /install/InstallDatabases.sh && \
+chmod +x /install/InstallWowfiles.sh && \
+chmod +x /install/UpdateWanIP.sh && \
+#chmod +x /etc/cont-init.d/50-preptrinity && \
+#chmod +x /etc/cont-init.d/60-preptrinityweb && \
+#rm -rf /install/TrinityWeb
 
 RUN   git clone https://github.com/brouzuf/TrinityCore.git /install --recursive -b master && \
 cp /install/restart_authserver.sh /home/server/wow/restart_authserver.sh && \
