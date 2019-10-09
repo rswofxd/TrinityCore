@@ -2,50 +2,46 @@
 
 if [ ! -d /mangos/dbc ]; then
         if [ -d /config/wowfiles/dbc ]; then
-                ln -s /config/wowfiles/dbc /mangos
+                ln -s /config/wowfiles/dbc /home/server/wow/data
         fi
 fi
 
 if [ ! -d /mangos/mmaps ]; then
         if [ -d /config/wowfiles/mmaps ]; then
-                ln -s /config/wowfiles/mmaps /mangos
+                ln -s /config/wowfiles/mmaps /home/server/wow/data
         fi
 fi
 
 if [ ! -d /mangos/vmaps ]; then
         if [ -d /config/wowfiles/vmaps ]; then
-                ln -s /config/wowfiles/vmaps /mangos
+                ln -s /config/wowfiles/vmaps /home/server/wow/data
         fi
 fi
 
 if [ ! -d /mangos/maps ]; then
         if [ -d /config/wowfiles/maps ]; then
-                ln -s /config/wowfiles/maps /mangos
+                ln -s /config/wowfiles/maps /home/server/wow/data
         fi
 fi
 
-if [ ! -d /config/mangoslogs ]; then
-        mkdir /config/mangoslogs/
+if [ ! -d /config/worldlogs ]; then
+        mkdir /config/worldlogs/
 fi
 
-if [ ! -d /config/realmdlogs ]; then
-        mkdir /config/realmdlogs/
+if [ ! -d /config/authlogs ]; then
+        mkdir /config/authlogs/
 fi
 
 if [ ! -d /config/wowconfig ]; then
         mkdir /config/wowconfig/
 fi
 
-if [ ! -f /config/wowconfig/mangosd.conf ]; then
-   cp /install/mangosd.conf /config/wowconfig
+if [ ! -f /config/wowconfig/worldserver.conf ]; then
+   cp /install/worldserver.conf /config/wowconfig
 fi
 
-if [ ! -f /config/wowconfig/realmd.conf ]; then
-   cp /install/realmd.conf /config/wowconfig
-fi
-
-if [ ! -f /config/wowconfig/console.conf ]; then
-   cp /install/console.conf /config/wowconfig
+if [ ! -f /config/wowconfig/authserver.conf ]; then
+   cp /install/authserver.conf /config/wowconfig
 fi
 
 test -f /proc/net/if_inet6 && echo "IPv6 supported. Not changing nginx config" || sed -i '\|listen \[::\]:80 default_server;|s///' /etc/nginx/sites-enabled/default
