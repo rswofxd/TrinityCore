@@ -4,22 +4,26 @@ if [ ! -d /config/trinityweb ]; then
         cp /var/www/html/trinityweb /config -R
 fi
 
-if [ ! -d /var/www/html/config ]; then
-        ln -s /config/trinityweb /var/www/html/config
+if [ ! -d /var/www/html/application/config ]; then
+        ln -s /config/trinityweb /var/www/html/application/config
 fi
 
 if [ -d /config/trinityweb ]; then
         chmod 777 /config/trinityweb -R
 fi
 
-if [ -d /var/www/html/core/cache ]; then
-        chmod 777 /var/www/html/core/cache -R
+if [ -d /var/www/html/application/cache ]; then
+        chmod 777 /var/www/html/application/cache -R
 fi  
 
-if [ ! -f /config/trinityweb/config.php.bak ]; then
-        chmod 777 /var/www/html/install/index.php
-fi
+if [ -d /var/www/html/application/log ]; then
+        chmod 777 /var/www/html/application/log -R
+fi 
 
-if [ -f /config/trinityweb/config.php.bak ]; then
-        chmod 000 /var/www/html/install/index.php
-fi
+#if [ ! -f /config/trinityweb/config.php.bak ]; then
+#        chmod 777 /var/www/html/install/index.php
+#fi
+
+#if [ -f /config/trinityweb/config.php.bak ]; then
+#        chmod 000 /var/www/html/install/index.php
+#fi
