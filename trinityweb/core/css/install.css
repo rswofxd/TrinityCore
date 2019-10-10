@@ -1,0 +1,97 @@
+/*!
+ * BlizzCMS
+ *
+ * An Open Source CMS for "World of Warcraft"
+ *
+ * This content is released under the MIT License (MIT)
+ *
+ * @css  Install
+ * @author  ProjectCMS
+ * @copyright  Copyright (c) 2017 - 2019, ProjectCMS.
+ * @license https://opensource.org/licenses/MIT MIT License
+ * @link    https://projectcms.net
+ * @since   Version 1.0
+ * @filesource
+ */
+
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../../core/fonts/lobster-regular-webfont.woff2') format('woff2'), url('../../core/fonts/lobster-regular-webfont.woff') format('woff');
+}
+
+html {
+  overflow-y: scroll;
+  background: transparent;
+  color: #f3f3f3;
+}
+
+body {
+  margin: 0;
+  background-color: #0f2a48;
+  background-image: url('../../assets/images/backgrounds/fx_background.jpg');
+  background-position: center -200px;
+  background-repeat: no-repeat;
+  font-size: 1.0625rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.uk-h1,
+.uk-h2,
+.uk-h3,
+.uk-h4,
+.uk-h5,
+.uk-h6 {
+  color: #fff;
+}
+
+.uk-hr {
+  border-top-color: rgba(255, 255, 255, .4);
+}
+
+.uk-button {
+  border-radius: 5px;
+}
+
+.blizzcms-logo-install {
+  font-family:'Lobster', cursive !important;
+  font-size: 44px !important;
+}
+
+.uk-modal-dialog {
+  background: #0f2a48;
+  border-radius: 5px;
+  color: #f3f3f3;
+}
+
+.uk-list-bullet > li:before {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%226%22%20height%3D%226%22%20viewBox%3D%220%200%206%206%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%223%22%20cy%3D%223%22%20r%3D%223%22%20%2F%3E%0D%0A%3C%2Fsvg%3E");
+}
+
+.uk-alert {
+  padding: 10px 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+}
+
+.uk-alert-danger {
+  background: #b92323;
+  color: #fff;
+}
+
+.uk-alert-success {
+  background: #36b923;
+  color: #fff;
+}
+
+.uk-icon-button {
+  background: rgba(255, 255, 255, .15);
+  width: 44px;
+  height: 44px;
+  font-size: 1.2rem;
+}

@@ -1,0 +1,410 @@
+/*!
+ * BlizzCMS
+ *
+ * An Open Source CMS for "World of Warcraft"
+ *
+ * This content is released under the MIT License (MIT)
+ *
+ * @css  General
+ * @author  ProjectCMS
+ * @copyright  Copyright (c) 2017 - 2019, ProjectCMS.
+ * @license https://opensource.org/licenses/MIT MIT License
+ * @link    https://projectcms.net
+ * @since   Version 1.0
+ * @filesource
+ */
+
+html {
+  overflow-y: scroll;
+  background: transparent;
+}
+
+.uk-mod-divider {
+  height: 1px;
+  background-color: rgba(255,255,255,.3);
+}
+
+.uk-mod-divider-thick {
+  height: 2px;
+}
+
+.uk-mod-divider-inset {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.uk-mod-divider-gutters {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.uk-mod-divider-inverse {
+  background-color: rgba(0,0,0,.3);
+}
+
+.uk-mod-divider-light {
+  background-color: rgba(255,255,255,.15);
+}
+
+.uk-mod-divider-light .uk-mod-divider-inverse {
+  border-color: rgba(0,0,0,.15);
+}
+
+.uk-mod-divider-extralight {
+  background-color: rgba(255,255,255,.05);
+}
+
+.uk-mod-divider-extralight .uk-mod-divider-inverse {
+  border-color: rgba(0,0,0,.05);
+}
+
+.uk-mod-divider-double {
+  height: 3px;
+  background: 0 0;
+  border:solid 1px rgba(255,255,255,.3);
+  border-width: 1px 0 1px 0;
+}
+
+.uk-mod-divider-double .uk-mod-divider-inverse {
+  border-color: rgba(0,0,0,.3);
+}
+
+.uk-space-small {
+  height: 10px;
+}
+
+.uk-space-medium {
+  height: 20px;
+}
+
+.uk-space-large {
+  height: 40px;
+}
+
+.uk-space-xlarge {
+  height: 80px;
+}
+
+.uk-space-xxlarge {
+  height: 160px;
+}
+
+.uk-principal-title {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 36.5px;
+  font-weight: 400;
+  line-height: 1.05;
+  padding: 0;
+  margin: 0;
+  margin-left: -.05em;
+  color: #fff;
+}
+
+.uk-text-white {
+  color: #ffffff !important;
+}
+
+.uk-text-bone {
+  color: #d2d2d2;
+}
+
+.uk-text-quality-poor {
+  color: #9d9d9d;
+}
+
+.uk-text-quality-uncommon {
+  color: #1eff00;
+}
+
+.uk-text-quality-rare {
+  color: #0070dd;
+}
+
+.uk-text-quality-epic {
+  color: #a335ee;
+}
+
+.uk-text-quality-legendary {
+  color: #ff8000;
+}
+
+.uk-text-quality-artifact {
+  color: #e5cc80;
+}
+
+.uk-text-quality-bind {
+  color: #ffd100;
+}
+
+.uk-text-quality-heirloom {
+  color: #71d5ff;
+}
+
+/*
+ * Donate
+ */
+.uk-card-donate {
+  background: linear-gradient(to right bottom, #56ccf2, #2f80ed);
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, .15);
+}
+
+.uk-card-donate .fab {
+  color: #fff;
+  font-size: 60px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, .1);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, .1);
+}
+
+.uk-card-donate .uk-card-title {
+  color: #fff;
+}
+
+.uk-card-donate.uk-card-hover:hover {
+  background-color: transparent;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, .15);
+}
+
+/*
+ * Vote
+ */
+.uk-card-vote {
+  background: rgba(0, 174, 255, .2);
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, .15), inset 0 0 50px 25px rgba(9, 10, 39, 0.65);
+  border: 1px solid rgba(0, 0, 0, .1);
+}
+
+.uk-countdown-number,
+.uk-countdown-separator {
+  font-size: 1rem;
+  margin-right: 3px;
+  line-height: 1.4;
+}
+
+/*
+ * Armory
+ */
+.fx-gap,
+.fx-gap-1,
+.fx-gap-2,
+.fx-gap-3,
+.fx-gap-4,
+.fx-gap-5,
+.fx-gap-6 {
+  display: block;
+  height: 15px;
+}
+
+.fx-gap:after,
+.fx-gap:before,
+.fx-gap-1:after,
+.fx-gap-1:before,
+.fx-gap-2:after,
+.fx-gap-2:before,
+.fx-gap-3:after,
+.fx-gap-3:before,
+.fx-gap-4:after,
+.fx-gap-4:before,
+.fx-gap-5:after,
+.fx-gap-5:before
+.fx-gap-6:after,
+.fx-gap-6:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.fx-gap-1 {
+  height: 20px;
+}
+
+.fx-gap-2 {
+  height: 30px;
+}
+
+.fx-gap-3 {
+  height: 50px;
+}
+
+.fx-gap-4 {
+  height: 70px;
+}
+
+.fx-gap-5 {
+  height: 90px;
+}
+
+.fx-gap-6 {
+  height: 110px;
+}
+
+/*
+ * Forum
+ */
+.uk-card-forum {
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid rgba(255, 255, 255, .15);
+  color: rgba(255, 255, 255, .7);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .6);
+}
+
+.uk-card-forum .uk-card-title {
+  color: #fff;
+}
+
+.uk-card-forum.uk-card-hover:hover {
+  background-color: rgba(255, 255, 255, .1);
+  box-shadow: 0 0 0 1px #000;
+}
+
+.uk-card-forum .uk-card-body {
+  padding: 18px;
+}
+
+.uk-card-forum .uk-card-body .card-icon {
+  display: block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+}
+
+tbody tr:first-child {
+  border-top: 1px solid rgba(255, 255, 255, .3);
+}
+
+tbody tr:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, .3);
+}
+
+.uk-table-hover tbody tr:hover,
+.uk-table-hover > tr:hover {
+  background: rgba(255, 255, 255, .05);
+}
+
+.uk-grid-divider.uk-grid-stack > .uk-grid-margin::before {
+  border-top: 1px solid rgba(255, 255, 255, .3);
+}
+
+.topic-author {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.topic-author-avatar {
+  position: relative;
+  background-image: url('../../assets/images/profiles/default.png');
+  background-size: cover;
+  border: 1px solid #000;
+  height: 78px;
+  width: 78px;
+}
+
+.topic-author-avatar:after {
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  width: 100%;
+}
+
+.topic-author-avatar img {
+  height: 70px;
+  width: 70px;
+  image-rendering: auto;
+}
+
+.topic-staff-author .topic-author-avatar img {
+  margin: 4px 0 0 4px;
+}
+
+.topic-staff-author .topic-author-avatar {
+  border: 1px solid #000;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.3),inset 0 0 0 3px #00b4ff,inset 0 0 0 4px #000,0 0 10px rgba(0, 0, 0, .8);
+}
+
+.topic-author-details {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+
+.topic-staff-author .staff-rank {
+  color: #00b4ff;
+}
+
+.glass-box {
+  background-color: rgba(255, 255, 255, .05);
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  padding: 1rem 0;
+}
+
+.glass-box-title {
+  color: #fff;
+  font-size: 2.25rem;
+  font-weight: 100;
+}
+
+.glass-box-container {
+  display: block;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, .3);
+  color: rgba(255, 255, 255, .7);
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.glass-box-editor {
+  display: block;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 640px) {
+  .glass-box-title {
+    font-size: 1.8rem;
+  }
+  .glass-box-container {
+    max-width: 20rem;
+  }
+  .glass-box-editor {
+    max-width: 20rem;
+  }
+}
+
+.topic-forum-member {
+  color: rgba(255, 255, 255, .6);
+}
+
+.topic-forum-staff {
+  color: #00b4ff;
+}
+
+a.topic-forum-staff {
+  color: #00b4ff;
+  text-decoration: none;
+  transition: color ease-in .15s;
+}
+
+a.topic-forum-staff:hover {
+  color: #fff;
+  text-decoration: none;
+}
