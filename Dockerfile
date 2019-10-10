@@ -27,7 +27,7 @@ mkdir /etc/services.d/nginx && \
 mkdir /etc/services.d/php7.2-fpm && \
 mkdir /run/php && \
 mkdir /var/www/html && \
-#cp /install/TrinityWeb/* /var/www/html -R && \
+cp /install/TrinityWeb/* /var/www/html -R && \
 cp /install/servicemangosd /etc/services.d/worldserver/run && \
 cp /install/servicerealmd /etc/services.d/authserver/run && \
 cp /install/servicenginx /etc/services.d/nginx/run && \
@@ -42,8 +42,6 @@ chmod +x /install/UpdateWanIP.sh && \
 chmod +x /etc/cont-init.d/50-preptrinity && \
 chmod +x /etc/cont-init.d/60-preptrinityweb && \
 #rm -rf /install/TrinityWeb && \
-cp /install/restart_authserver.sh /home/server/wow/restart_authserver.sh && \
-cp /install/restart_worldserver.sh /home/server/wow/restart_worldserver.sh &&\
 mkdir /home/server/wow/etc && \
 cp /install/authserver.conf /home/server/wow/etc/authserver.conf && \
 cp /install/worldserver.conf /home/server/wow/etc/worldserver.conf
