@@ -1,0 +1,117 @@
+::selection{ background-color: #E13300; color: white; }
+::moz-selection{ background-color: #E13300; color: white; }
+::webkit-selection{ background-color: #E13300; color: white; }
+
+#body{
+    margin: 0 15px;
+}
+
+#container{
+    margin: 10px;
+    border: 1px solid #D0D0D0;
+    -webkit-box-shadow: 0 0 8px #D0D0D0;
+}
+
+.chatbox {
+	position: fixed;
+	position: expression("absolute");
+	width: 225px;
+	display: none;
+}
+
+.chatboxhead {
+	background-color: rgba(21, 26, 35, .95);
+	padding: 7px;
+	color: #fff;
+	border-right: 1px solid rgba(255, 255, 255, .15);
+	border-left: 1px solid rgba(255, 255, 255, .15);
+	border-top: 1px solid rgba(255, 255, 255, .15);
+}
+
+.chatboxblink {
+	background-color: #176689;
+	border-right: 1px solid #176689;
+	border-left: 1px solid #176689;
+}
+
+.chatboxcontent {
+	font-family: arial,sans-serif;
+	font-size: 13px;
+	color: #333333;
+	height: 200px;
+	width: 209px;
+	overflow-y: auto;
+	overflow-x: auto;
+	padding: 7px;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #eee;
+	background-color: #fff;
+	line-height: 1.3em;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+.chatboxinput {
+	padding: 5px;
+	background-color: #fff;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+.chatboxtextarea {
+	resize: none;
+}
+
+.chatboxtextareaselected {
+	margin: 0;
+}
+
+.chatboxmessage {
+	margin-left: 1em;
+}
+
+.chatboxinfo {
+	margin-left: -1em;
+	color: #666;
+
+}
+
+.chatboxmessagefrom {
+	margin-left: -1em;
+	font-weight: bold;
+}
+
+.chatboxmessagecontent {
+}
+
+.chatboxoptions {
+	display: inline-block;
+	float: right;
+	max-width: 20%;
+}
+
+.chatboxoptions a {
+	text-decoration: none;
+	color: #fff;
+	font-weight: bold;
+	font-family: Verdana,Arial,"Bitstream Vera Sans",sans-serif;
+}
+
+.chatboxtitle {
+	display: inline-block;
+	font-size: .875rem;
+	max-width: 70%;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+.uk-textarea.chatboxtextarea {
+	border-color: #bcbcbc;
+	font-size: .875rem;
+}
+
+.uk-textarea:focus.chatboxtextarea {
+	border-color: #666;
+}
