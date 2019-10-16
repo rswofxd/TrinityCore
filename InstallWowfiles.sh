@@ -1,18 +1,19 @@
 #!/bin/bash
 
-cores=$(nproc --ignore=1)
+mkdir vmaps
 
 cp /home/server/wow/bin/mapextractor /wow
 cp /home/server/wow/bin/mmaps_generator /wow
-cp /home/server/wow/bin/vmap4assembler /wow
-cp /home/server/wow/bin/vmap4extractor /wow
+cp /home/server/wow/bin/vmap4assembler /wow/vmaps
+cp /home/server/wow/bin/vmap4extractor /wow/vmaps
 
 cd /wow
 
 ./mapextractor
-./vmap4extractor
-mkdir vmaps
+cd vmaps
+./vmap4extractor -d /wow/Data
 ./vmap4assembler Buildings vmaps
+cd /wow
 mkdir mmaps
 ./mmaps_generator
 
