@@ -40,7 +40,7 @@ docker exec -it wotlk /bin/bash
 Now you will be connected to the docker container.
 
 ```
-/install/InstallDatabases.sh
+/install/InstallDatabase.sh
 ```
 This will generate the database in the mariadb database
 
