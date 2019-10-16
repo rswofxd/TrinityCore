@@ -1,19 +1,15 @@
 #!/bin/bash
 
-mkdir vmaps
-
 cp /home/server/wow/bin/mapextractor /wow
 cp /home/server/wow/bin/mmaps_generator /wow
-cp /home/server/wow/bin/vmap4assembler /wow/vmaps
-cp /home/server/wow/bin/vmap4extractor /wow/vmaps
+cp /home/server/wow/bin/vmap4assembler /wow
+cp /home/server/wow/bin/vmap4extractor /wow
 
 cd /wow
 
 ./mapextractor
-cd vmaps
-./vmap4extractor -d /wow/Data
+./vmap4extractor
 ./vmap4assembler Buildings vmaps
-cd /wow
 mkdir mmaps
 ./mmaps_generator
 
@@ -24,7 +20,7 @@ mkdir /config/wowfiles
 mkdir /config/mangoslogs
 
 mv /wow/mmaps /config/wowfiles
-mv /wow/vmaps/vmaps /config/wowfiles
+mv /wow/vmaps /config/wowfiles
 mv /wow/maps /config/wowfiles
 mv /wow/dbc /config/wowfiles
 
