@@ -24,7 +24,7 @@ mkdir /config/wowfiles
 mkdir /config/mangoslogs
 
 mv /wow/mmaps /config/wowfiles
-mv /wow/vmaps /config/wowfiles
+mv /wow/vmaps/vmaps /config/wowfiles
 mv /wow/maps /config/wowfiles
 mv /wow/dbc /config/wowfiles
 
