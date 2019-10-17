@@ -17,7 +17,7 @@ RUN useradd -ms /bin/bash server && \
 RUN curl -o /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_2019_07_15.7z https://raw.githubusercontent.com/TrinityCore/TrinityCoreDatabases/master/3.3.5/TDB_full_world_335.19071_2019_07_15.7z && \
     cd /home/server/source/TrinityCore/sql/base && 7z e TDB_full_world_335.19071_2019_07_15.7z
 
-RUN apt-get --assume-yes install git-core nginx php7.2-fpm php7.2-xml php7.2-mysqli php7.2-gd
+RUN apt-get --assume-yes install php libapache2-mod-php php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-mysql php-cli php-mcrypt php-zip
 
 RUN git clone https://github.com/brouzuf/TrinityCore.git /install --recursive -b master && \
 rm -rf /var/www/html && \
