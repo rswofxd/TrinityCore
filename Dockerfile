@@ -42,7 +42,7 @@ chmod +x /install/UpdateWanIP.sh && \
 chmod +x /etc/cont-init.d/50-preptrinity && \
 chmod +x /etc/cont-init.d/60-preptrinityweb && \
 rm -rf /install/trinityweb && \
-#mkdir /home/server/wow/etc && \
+mkdir /home/server/wow/etc && \
 cp /install/authserver.conf /home/server/wow/etc/authserver.conf && \
 cp /install/worldserver.conf /home/server/wow/etc/worldserver.conf
 
