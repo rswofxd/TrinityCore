@@ -1,2 +1,2 @@
 #!/usr/bin/with-contenv bash
-/home/server/wow/bin/worldserver
+su server -c /home/server/wow/bin/worldserver
