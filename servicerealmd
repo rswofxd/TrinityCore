@@ -1,3 +1,2 @@
 #!/usr/bin/with-contenv bash
-
-/home/server/wow/bin/authserver -c /home/server/wow/conf/authserver.conf
+/home/server/wow/bin/authserver
