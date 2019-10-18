@@ -23,13 +23,16 @@ mv /wow/mmaps /config/wowfiles
 mv /wow/vmaps /config/wowfiles
 mv /wow/maps /config/wowfiles
 mv /wow/dbc /config/wowfiles
+mv /wow/Cameras /config/wowfiles
 
 mkdir /home/server/wow/data
 
-ln -s /config/wowfiles/mmaps /home/server/wow/data
-ln -s /config/wowfiles/vmaps /home/server/wow/data
-ln -s /config/wowfiles/maps /home/server/wow/data
-ln -s /config/wowfiles/dbc /home/server/wow/data
+ln -s /config/wowfiles/mmaps /home/server/wow/data/mmaps
+ln -s /config/wowfiles/vmaps /home/server/wow/data/vmaps
+ln -s /config/wowfiles/maps /home/server/wow/data/maps
+ln -s /config/wowfiles/dbc /home/server/wow/data/dbc
+ln -s /config/wowfiles/Cameras /home/server/wow/data/Cameras
+
 
 mkdir /config/wowconfig/
 
