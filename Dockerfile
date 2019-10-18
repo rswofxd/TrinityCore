@@ -17,7 +17,7 @@ RUN useradd -ms /bin/bash server && \
 RUN curl -o /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_2019_07_15.7z https://raw.githubusercontent.com/TrinityCore/TrinityCoreDatabases/master/3.3.5/TDB_full_world_335.19071_2019_07_15.7z && \
     cd /home/server/source/TrinityCore/sql/base && 7z e TDB_full_world_335.19071_2019_07_15.7z
 
-RUN apt-get --assume-yes install php libapache2-mod-php php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-mysql php-cli php-mcrypt php-zip
+RUN apt-get --assume-yes install php nginx php7.2-fpm php7.2-xml php7.2-mysqli php7.2-gd libace-dev libapache2-mod-php php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-mysql php-cli php-zip php-dev libmcrypt-dev php-pear
 
 RUN git clone https://github.com/brouzuf/TrinityCore.git /install --recursive -b master && \
 rm -rf /var/www/html && \
@@ -41,8 +41,8 @@ chmod +x /install/InstallWowfiles.sh && \
 chmod +x /install/UpdateWanIP.sh && \
 chmod +x /etc/cont-init.d/50-preptrinity && \
 chmod +x /etc/cont-init.d/60-preptrinityweb && \
-#rm -rf /install/trinityweb && \
-mkdir /home/server/wow/etc && \
+rm -rf /install/trinityweb && \
+#mkdir /home/server/wow/etc && \
 cp /install/authserver.conf /home/server/wow/etc/authserver.conf && \
 cp /install/worldserver.conf /home/server/wow/etc/worldserver.conf
 
