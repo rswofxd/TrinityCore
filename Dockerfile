@@ -14,22 +14,24 @@ RUN useradd -ms /bin/bash server && \
     cd /home/server/source/TrinityCore/build && cmake ../ -DCMAKE_INSTALL_PREFIX=/home/server/wow -DCONF_DIR=/home/server/wow/conf -DTOOLS=1 && \
     make && make install
 
+RUN apt-get --assume-yes install php nginx php7.2-fpm php7.2-xml php7.2-mysqli php7.2-gd \
+    libace-dev libapache2-mod-php php-common php-mbstring php-xmlrpc php-soap php-gd php-xml \
+    php-mysql php-cli php-zip php-dev libmcrypt-dev php-pear curl
+
 RUN curl -o /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_2019_07_15.7z https://raw.githubusercontent.com/TrinityCore/TrinityCoreDatabases/master/3.3.5/TDB_full_world_335.19071_2019_07_15.7z && \
     cd /home/server/source/TrinityCore/sql/base && 7z e TDB_full_world_335.19071_2019_07_15.7z
 
-RUN apt-get --assume-yes install php nginx php7.2-fpm php7.2-xml php7.2-mysqli php7.2-gd \
-    libace-dev libapache2-mod-php php-common php-mbstring php-xmlrpc php-soap php-gd php-xml \
-    php-mysql php-cli php-zip php-dev libmcrypt-dev php-pear
-
 RUN git clone https://github.com/brouzuf/TrinityCore.git /install --recursive -b master && \
 rm -rf /var/www/html && \
-mkdir /etc/services.d/worldserver && \
+mkdir /var/www/html && \
+cp /install/trinityweb/* /var/www/html -R && \
+rm -rf /install/trinityweb
+
+RUN mkdir /etc/services.d/worldserver && \
 mkdir /etc/services.d/authserver && \
 mkdir /etc/services.d/nginx && \
 mkdir /etc/services.d/php7.2-fpm && \
 mkdir /run/php && \
-mkdir /var/www/html && \
-cp /install/trinityweb/* /var/www/html -R && \
 cp /install/servicemangosd /etc/services.d/worldserver/run && \
 cp /install/servicerealmd /etc/services.d/authserver/run && \
 cp /install/servicenginx /etc/services.d/nginx/run && \
@@ -43,7 +45,6 @@ chmod +x /install/InstallWowfiles.sh && \
 chmod +x /install/UpdateWanIP.sh && \
 chmod +x /etc/cont-init.d/50-preptrinity && \
 chmod +x /etc/cont-init.d/60-preptrinityweb && \
-rm -rf /install/trinityweb && \
 mkdir /home/server/wow/etc && \
 cp /install/authserver.conf /home/server/wow/etc/authserver.conf && \
 cp /install/worldserver.conf /home/server/wow/etc/worldserver.conf
