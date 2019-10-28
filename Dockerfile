@@ -1,10 +1,10 @@
-FROM linuxserver/mariadb
+FROM debian/buster
 MAINTAINER admin <brouzuf@gmail.com> 
 
 RUN apt-get --assume-yes update && apt-get --assume-yes upgrade && \
-    apt-get --assume-yes install build-essential gcc g++ automake git autoconf make patch \
-  libmysql++-dev libtool libssl-dev grep binutils zlibc libc6 libbz2-dev cmake subversion p7zip-full \
-  libboost-all-dev mysql-client-5.6 screen libace-dev libmysqlclient-dev clang libreadline-dev libncurses-dev && \
+    apt-get --assume-yes install git clang cmake make gcc g++ libmariadbclient-dev \
+    libssl-dev libbz2-dev libreadline-dev libncurses-dev libboost-all-dev mariadb-server \
+    p7zip default-libmysqlclient-dev && \
   update-alternatives --install /usr/bin/cc cc /usr/bin/clang 100 && \
   update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang 100
 
@@ -17,7 +17,9 @@ RUN useradd -ms /bin/bash server && \
 RUN curl -o /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_2019_07_15.7z https://raw.githubusercontent.com/TrinityCore/TrinityCoreDatabases/master/3.3.5/TDB_full_world_335.19071_2019_07_15.7z && \
     cd /home/server/source/TrinityCore/sql/base && 7z e TDB_full_world_335.19071_2019_07_15.7z
 
-RUN apt-get --assume-yes install php nginx php7.2-fpm php7.2-xml php7.2-mysqli php7.2-gd libace-dev libapache2-mod-php php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-mysql php-cli php-zip php-dev libmcrypt-dev php-pear
+RUN apt-get --assume-yes install php nginx php7.2-fpm php7.2-xml php7.2-mysqli php7.2-gd \
+    libace-dev libapache2-mod-php php-common php-mbstring php-xmlrpc php-soap php-gd php-xml \
+    php-mysql php-cli php-zip php-dev libmcrypt-dev php-pear
 
 RUN git clone https://github.com/brouzuf/TrinityCore.git /install --recursive -b master && \
 rm -rf /var/www/html && \
@@ -45,5 +47,3 @@ rm -rf /install/trinityweb && \
 mkdir /home/server/wow/etc && \
 cp /install/authserver.conf /home/server/wow/etc/authserver.conf && \
 cp /install/worldserver.conf /home/server/wow/etc/worldserver.conf
-
-
