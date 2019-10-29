@@ -16,8 +16,8 @@ RUN useradd -ms /bin/bash server && \
 
 RUN git clone https://github.com/brouzuf/TrinityCore.git /install --recursive -b master && \
 cp /install/nginx.list /etc/apt/sources.list.d/nginx.list && \
-rm -rf /var/www/html && \
-mkdir /var/www/html && \
+#rm -rf /var/www/html && \
+#mkdir /var/www/html && \
 cp /install/trinityweb/* /var/www/html -R && \
 rm -rf /install/trinityweb
 
