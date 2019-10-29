@@ -14,9 +14,12 @@ RUN useradd -ms /bin/bash server && \
     cd /home/server/source/TrinityCore/build && cmake ../ -DCMAKE_INSTALL_PREFIX=/home/server/wow -DCONF_DIR=/home/server/wow/conf -DTOOLS=1 && \
     make && make install
 
-RUN apt-get --assume-yes install php nginx php7.2-fpm php7.2-xml php7.2-mysqli php7.2-gd \
-    libace-dev libapache2-mod-php php-common php-mbstring php-xmlrpc php-soap php-gd php-xml \
-    php-mysql php-cli php-zip php-dev libmcrypt-dev php-pear curl
+RUN apt-get --assume-yes install gnupg2 && \
+wget https://nginx.org/keys/nginx_signing.key && apt-key add nginx_signing.key && \
+apt-get --assume-yes update
+
+RUN apt-get --assume-yes install nginx php7.3-fpm php7.3-gd php7.3-mysql php7.3-curl php7.3-imap php7.3-mbstring php7.3-xml \
+    libace-dev php-zip libmcrypt-dev php-pear curl
 
 RUN curl -o /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_2019_07_15.7z https://raw.githubusercontent.com/TrinityCore/TrinityCoreDatabases/master/3.3.5/TDB_full_world_335.19071_2019_07_15.7z && \
     cd /home/server/source/TrinityCore/sql/base && 7z e TDB_full_world_335.19071_2019_07_15.7z
