@@ -17,7 +17,6 @@ echo Moving generated files from /wow to /config/wowfiles
 echo This may take a while.
 
 mkdir /config/wowfiles
-mkdir /config/mangoslogs
 
 mv /wow/mmaps /config/wowfiles
 mv /wow/vmaps /config/wowfiles
