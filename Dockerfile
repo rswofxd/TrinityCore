@@ -40,7 +40,7 @@ cp /install/servicerealmd /etc/services.d/authserver/run && \
 #cp /install/servicenginx /etc/services.d/nginx/run && \
 #cp /install/servicephp-fpm /etc/services.d/php7.3-fpm/run && \
 cp /install/50-preptrinity /etc/cont-init.d && \
-cp /install/60-preptrinityweb /etc/cont-init.d && \
+#cp /install/60-preptrinityweb /etc/cont-init.d && \
 #cp /install/nginxdefaultconfig /etc/nginx/sites-enabled/default && \
 chmod +x /install/InstallTrinity.sh && \
 chmod +x /install/InstallDatabase.sh && \
