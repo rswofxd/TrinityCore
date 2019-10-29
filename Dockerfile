@@ -33,7 +33,7 @@ RUN curl -o /home/server/source/TrinityCore/sql/base/TDB_full_world_335.19071_20
 RUN mkdir /etc/services.d/worldserver && \
 mkdir /etc/services.d/authserver && \
 mkdir /etc/services.d/nginx && \
-mkdir /etc/services.d/php7.2-fpm && \
+mkdir /etc/services.d/php7.3-fpm && \
 mkdir /run/php && \
 cp /install/servicemangosd /etc/services.d/worldserver/run && \
 cp /install/servicerealmd /etc/services.d/authserver/run && \
