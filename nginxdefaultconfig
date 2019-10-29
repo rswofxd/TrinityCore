@@ -15,10 +15,16 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
-	location ~ \.php$ {
-		include snippets/fastcgi-php.conf;
-		fastcgi_pass unix:/run/php/php7.2-fpm.sock;
-	}
+    # pass the PHP scripts to FastCGI server listening on /run/php/php7.3-fpm.sock
+    #
+    location ~ \.php$ {
+        root           /usr/share/nginx/html;
+        try_files      $uri =404;
+        fastcgi_index  index.php;
+        fastcgi_pass   unix:/run/php/php7.3-fpm.sock;
+        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+    }
 
 	# deny access to .htaccess files, if Apache's document root
 	# concurs with nginx's one
